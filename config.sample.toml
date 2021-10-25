@@ -3,3 +3,7 @@ token = "TOKEN"
 
 [database]
 file = "data.sqlite"
+
+[logging]
+level = "ALL"
+debug = true
