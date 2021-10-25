@@ -5,7 +5,9 @@
   "main": "dist/app.js",
   "type": "module",
   "scripts": {
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "compile": "tsc",
+    "start": "node ./dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,7 @@
     "prisy"
   ],
   "author": "Elias Kleppinger",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/DuckingElias/prisy/issues"
   },
