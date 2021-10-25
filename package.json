@@ -34,7 +34,10 @@
   "dependencies": {
     "discord-akairo": "^8.1.0",
     "discord.js": "^13.2.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.2",
     "toml": "^3.0.0",
-    "tslog": "^3.2.2"
+    "tslog": "^3.2.2",
+    "typeorm": "^0.2.38"
   }
 }
