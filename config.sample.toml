@@ -1,2 +1,5 @@
 [discord]
 token = "TOKEN"
+
+[database]
+file = "data.sqlite"
