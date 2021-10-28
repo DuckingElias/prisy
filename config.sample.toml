@@ -2,8 +2,17 @@
 token = "TOKEN"
 
 [database]
-file = "data.sqlite"
+type = "mysql"
+# Only when type = "sqlite"
+# file = "data.sqlite"
+host = "localhost"
+port = 3306
+username = "root"
+password = ""
+database = "prisy"
+synchronize = true
+logging = false
 
-[logging]
-level = "ALL"
-debug = true
+[guild_defaults]
+prefix = "-"
+language = "en"

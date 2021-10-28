@@ -1,5 +1,6 @@
 import { readdir } from "fs/promises";
-import { createConnection, EntitySchema } from "typeorm";
+import { ConnectionOptions, createConnection, EntitySchema } from "typeorm";
+import Guild from "../entities/guild.js";
 import { getConfig } from "./config.js";
 import { info } from "./logger.js";
 
@@ -15,11 +16,22 @@ export async function getEntityClasses(): Promise<EntitySchema[]> {
 }
 
 export async function connect() {
-	const connection = await createConnection({
-		type: "sqlite",
-		database: getConfig().database.file,
+	const entityConfig = {
 		entities: await getEntityClasses(),
-		synchronize: true,
-	});
+	};
+	const connection = await createConnection({
+		...getConfig().database,
+		...entityConfig,
+	} as ConnectionOptions);
 	info("Connected to database");
+}
+
+export async function getGuild(id: string): Promise<Guild> {
+	let guild = await Guild.findOne(id);
+	if (guild) return guild;
+	guild = new Guild();
+	guild.id = id;
+	guild.prefix = getConfig().guild_defaults.prefix;
+	guild.language = getConfig().guild_defaults.language;
+	return await guild.save();
 }
