@@ -1,6 +1,7 @@
 import { GuildChannel, Message, MessageEmbed } from "discord.js";
 import { getConnection } from "typeorm";
 import Arguments from "../core/arguments.js";
+import { generateEmbed } from "../core/client.js";
 import Event from "../core/event.js";
 import Guild from "../entities/guild.js";
 import { getCommands } from "../helpers/command.js";
@@ -20,7 +21,31 @@ export default class MessageCreateEvent extends Event<"messageCreate"> {
 		let text = message.content;
 		text = text.trim();
 
-		if (!text.startsWith(prefix)) return;
+		if (!text.startsWith(prefix)) {
+			if (
+				message.mentions.has(message.client.user, {
+					ignoreEveryone: true,
+					ignoreRoles: true,
+				})
+			) {
+				await message.reply({
+					embeds: [
+						generateEmbed(
+							guild,
+							message,
+							0x0000ff,
+							guild.t("messages.my_prefix.title"),
+							guild.t(
+								"messages.my_prefix.description",
+								"<@" + message.member.user.id + ">",
+								guild.prefix,
+							),
+						),
+					],
+				});
+			}
+			return;
+		}
 		// Remove the first occurence of the prefix in text
 		text = text.substring(prefix.length);
 		const splitted = text.split(" ");

@@ -1,4 +1,10 @@
 {
+    "messages": {
+        "my_prefix": {
+            "title": "Prefix",
+            "description": "Hallo {0} :wave: Mein Prefix lautet `{1}`"
+        }
+    },
     "commands": {
         "error_messages": {
             "error_title": "Fehler - {0}",
