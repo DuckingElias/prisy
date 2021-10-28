@@ -1,9 +1,8 @@
 {
     "commands": {
-        "notFound": "The command `{0}` was not found. {1}",
-        "ban": {
-            "usage": "Usage: {prefix}ban ID reason",
-            "success": "Success!"
+        "test": {
+            "title": "Test command",
+            "description": "Language & Translation System test. (ENGLISH)"
         }
     }
 }

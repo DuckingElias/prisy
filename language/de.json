@@ -1,9 +1,8 @@
 {
     "commands": {
-        "notFound": "Der Befehl `{1}` wurde nicht gefunden! {0}",
-        "ban": {
-            "usage": "Verwendung: {prefix}ban ID Grund",
-            "success": "Erfolg!"
+        "test": {
+            "title": "Test Befehl",
+            "description": "Sprach- & Übersetzungssystem test. (DEUTSCH)"
         }
     }
 }
