@@ -1,8 +1,27 @@
 {
     "commands": {
+        "error_messages": {
+            "error_title": "Fehler - {0}",
+            "missing_argument": "Das Argument **{0}** ist nicht optional und wird benötigt!",
+            "wrong_argument": "Das Argument **{0}** hat den falschen Typen."
+        },
         "test": {
-            "title": "Test Befehl",
-            "description": "Sprach- & Übersetzungssystem test. (DEUTSCH)"
+            "title": "Test",
+            "description": "Befehl- & Übersetzungssystem Test"
+        },
+        "setlang": {
+            "title": "Sprache ändern",
+            "description": "Ändert die Sprache für den Discord Server",
+            "errors": {
+                "language_not_found": "Die Sprache **{0}** steht nicht zur Auswahl. Verfügbare Sprachen::"
+            },
+            "success": "Die Sprache wurde zu **{0} {1}** gesetzt.",
+            "args": {
+                "language": {
+                    "title": "Ländercode",
+                    "description": "Der Ländercode für die zu setztende Sprache"
+                }
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import Language from "../core/language.js";
 import dot from "dot-object";
-const languages: Language[] = [];
+export const languages: Language[] = [];
 
 export async function loadLanguages() {
 	const rawLanguages = JSON.parse((await readFile("./language/languages.json")).toString());

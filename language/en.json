@@ -1,8 +1,27 @@
 {
     "commands": {
+        "error_messages": {
+            "error_title": "Error - {0}",
+            "missing_argument": "The argument **{0}** is not optional",
+            "wrong_argument": "The argument **{0}** has the wrong type."
+        },
         "test": {
             "title": "Test command",
             "description": "Language & Translation System test. (ENGLISH)"
+        },
+        "setlang": {
+            "title": "Set language",
+            "description": "Set's the language for the guild",
+            "errors": {
+                "language_not_found": "The language **{0}** doesn't exist. Available languages:"
+            },
+            "success": "The language was set to **{0} {1}**.",
+            "args": {
+                "language": {
+                    "title": "Language",
+                    "description": "The language to set for the guild"
+                }
+            }
         }
     }
 }
