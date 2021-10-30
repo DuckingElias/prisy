@@ -1,6 +1,9 @@
 export default interface Config {
 	discord: {
 		token: string;
+		command_registration_type: "global" | "guild";
+		application_id: string;
+		development_guild_id: string;
 	};
 
 	database: {

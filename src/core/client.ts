@@ -1,6 +1,8 @@
 import { Client as DiscordClient, ColorResolvable, Message, MessageEmbed } from "discord.js";
 import Guild from "../entities/guild.js";
+import { REST } from "@discordjs/rest";
 import { info, silly } from "../helpers/logger.js";
+import { getConfig } from "../helpers/config.js";
 
 let client: DiscordClient = new DiscordClient({
 	intents: [
@@ -19,6 +21,20 @@ let client: DiscordClient = new DiscordClient({
 		"GUILD_INTEGRATIONS",
 	],
 });
+
+
+const rest = new REST({
+	version: "9",
+});
+
+/**
+ * Returns the REST instance.
+ * 
+ * @returns {REST}
+ */
+export function getRest(token: string): REST {
+	return rest.setToken(token);
+}
 
 /**
  * Returns the client instance.

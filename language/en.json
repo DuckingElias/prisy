@@ -17,7 +17,13 @@
         },
         "leet": {
             "title": "Leetspeak",
-            "description": "Converts normal text to leetspeak"
+            "description": "Converts normal text to leetspeak",
+            "args": {
+                "text": {
+                    "title": "Text",
+                    "description": "The text to set for the guild"
+                }
+            }
         },
         "setlang": {
             "title": "Set language",

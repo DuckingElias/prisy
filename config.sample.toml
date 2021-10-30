@@ -1,5 +1,11 @@
 [discord]
 token = "TOKEN"
+application_id = "APPLICATION_ID"
+#
+# Use "guild" while developing.
+# When running in production, use "global"
+command_registration_type = "guild"
+development_guild_id = "903333333973491842"
 
 [database]
 type = "mysql"
