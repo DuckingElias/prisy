@@ -15,6 +15,10 @@
             "title": "Test command",
             "description": "Language & Translation System test. (ENGLISH)"
         },
+        "leet": {
+            "title": "Leetspeak",
+            "description": "Converts normal text to leetspeak"
+        },
         "setlang": {
             "title": "Set language",
             "description": "Set's the language for the guild",

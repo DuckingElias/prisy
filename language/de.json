@@ -15,6 +15,10 @@
             "title": "Test",
             "description": "Befehl- & Übersetzungssystem Test"
         },
+        "leet": {
+            "title": "Leetspeak",
+            "description": "Konvertiert normalen Text zu Leetspeak"
+        },
         "setlang": {
             "title": "Sprache ändern",
             "description": "Ändert die Sprache für den Discord Server",
