@@ -1,8 +1,7 @@
 import { GuildMember, GuildChannel, Message, MessageEmbed } from "discord.js";
 import arguments from "../core/arguments.js";
 import { Category } from "../core/category.js";
-import { replyError, replySuccess } from "../core/client.js";
-import Command from "../core/command.js";
+import Command, { CommandHandle } from "../core/command.js";
 import Guild from "../entities/guild.js";
 import { getLanguage, languages } from "../helpers/language.js";
 import ArgumentDefinition, { ArgumentType } from "../interfaces/argument.js";
@@ -22,25 +21,24 @@ export default class SetLangCommand extends Command {
 		];
 	}
 
-	async execute(guild: Guild, message: Message, args: arguments): Promise<void> {
+	async execute(handle: CommandHandle): Promise<void> {
+		let { guildData, message, args} = handle;
 		const language = getLanguage(args.text("language"));
 		let description =
-			guild.t("commands.setlang.errors.language_not_found", args.text("language")) + "\n\n";
+			guildData.t("commands.setlang.errors.language_not_found", args.text("language")) + "\n\n";
 		for (let language of languages) {
 			description += `${language.flag} ${language.label} - \`${language.code}\`\n`;
 		}
 		if (language == null) {
-			await replyError(guild, message, "setlang", description + "\n");
+			handle.error("setlang", description + "\n")
 			return;
 		}
 
-		guild.language = language.code;
-		guild = await guild.save();
-		await replySuccess(
-			guild,
-			message,
+		guildData.language = language.code;
+		guildData = await guildData.save();
+		await handle.success(
 			"setlang",
-			guild.t("commands.setlang.success", language.flag, language.label),
-		);
+			guildData.t("commands.setlang.success", language.flag, language.label),
+		)
 	}
 }

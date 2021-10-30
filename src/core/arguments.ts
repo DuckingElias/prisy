@@ -8,14 +8,14 @@ export default class Arguments {
 	}
 
 	string(name: string): string {
-		return this.argumentValues[name];
+		return this.argumentValues[name].replaceAll(" ", "");
 	}
 
 	text(name: string): string {
 		if (this.argumentValues[name].startsWith('"') && this.argumentValues[name].endsWith('"')) {
 			return this.argumentValues[name].substring(1, this.argumentValues[name].length - 1);
 		}
-		return this.string(name);
+		return this.argumentValues[name];
 	}
 
 	number(name: string): number {

@@ -1,4 +1,4 @@
-import { Client as DiscordClient, ColorResolvable, Message, MessageEmbed } from "discord.js";
+import { Client as DiscordClient, ColorResolvable, GuildMember, Message, MessageEmbed } from "discord.js";
 import Guild from "../entities/guild.js";
 import { REST } from "@discordjs/rest";
 import { info, silly } from "../helpers/logger.js";
@@ -55,59 +55,4 @@ export function getClient(): DiscordClient {
 export async function login(token: string): Promise<void> {
 	await client.login(token);
 	silly(`Logged into Discord`);
-}
-
-export function generateEmbed(
-	guild: Guild,
-	message: Message,
-	color: ColorResolvable,
-	title: string,
-	description: string,
-): MessageEmbed {
-	return new MessageEmbed()
-		.setColor(color)
-		.setTitle(title)
-		.setAuthor(message.author.username, message.author.avatarURL())
-		.setDescription(description);
-}
-
-export async function replyError(
-	guild: Guild,
-	message: Message,
-	commandName: string,
-	description: string,
-): Promise<void> {
-	await message.reply({
-		embeds: [
-			generateEmbed(
-				guild,
-				message,
-				0xff0000,
-				guild.t(
-					"commands.error_messages.error_title",
-					guild.t("commands." + commandName + ".title"),
-				),
-				description,
-			),
-		],
-	});
-}
-
-export async function replySuccess(
-	guild: Guild,
-	message: Message,
-	commandName: string,
-	description: string,
-): Promise<void> {
-	await message.reply({
-		embeds: [
-			generateEmbed(
-				guild,
-				message,
-				0x00ff00,
-				guild.t("commands." + commandName + ".title"),
-				description,
-			),
-		],
-	});
 }

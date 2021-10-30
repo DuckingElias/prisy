@@ -1,7 +1,7 @@
 import { GuildChannel, Message, MessageEmbed } from "discord.js";
 import { getConnection } from "typeorm";
 import Arguments from "../core/arguments.js";
-import { generateEmbed } from "../core/client.js";
+import { CommandHandle } from "../core/command.js";
 import Event from "../core/event.js";
 import Guild from "../entities/guild.js";
 import { getCommands } from "../helpers/command.js";
@@ -30,17 +30,15 @@ export default class MessageCreateEvent extends Event<"messageCreate"> {
 			) {
 				await message.reply({
 					embeds: [
-						generateEmbed(
-							guild,
-							message,
-							0x0000ff,
-							guild.t("messages.my_prefix.title"),
-							guild.t(
-								"messages.my_prefix.description",
-								"<@" + message.member.user.id + ">",
-								guild.prefix,
-							),
-						),
+						new MessageEmbed()
+						.setColor(0x0000ff)
+						.setTitle(guild.t("messages.my_prefix.title"))
+						.setDescription(guild.t(
+							"messages.my_prefix.description",
+							"<@" + message.member.user.id + ">",
+							guild.prefix,
+						))
+						.setAuthor(message.member.user.tag, message.member.user.displayAvatarURL())
 					],
 				});
 			}
@@ -164,6 +162,6 @@ export default class MessageCreateEvent extends Event<"messageCreate"> {
 			argumentValues[argumentDefinition.name] = arg;
 		}
 
-		if (command) command.execute(guild, message, new Arguments(argumentValues));
+		if (command) command.execute(new CommandHandle(new Arguments(argumentValues), guild, message.guild, message.channel as GuildChannel, message.member, message, null));
 	}
 }
