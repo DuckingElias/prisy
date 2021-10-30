@@ -29,11 +29,12 @@
   "devDependencies": {
     "@types/dot-object": "^2.1.2",
     "@types/node": "^16.11.4",
+    "npm-force-resolutions": "^0.0.10",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@discordjs/builders": "^0.8.1",
+    "@discordjs/builders": "^0.7.0",
     "@discordjs/rest": "^0.1.0-canary.0",
     "@discordjs/voice": "^0.7.0",
     "bufferutil": "^4.0.5",
