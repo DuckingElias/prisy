@@ -87,7 +87,6 @@ export async function deploySlashCommands() {
 					break;
 			}
 		}
-		console.log(builder.toJSON());
 		slashCommands.push(builder.toJSON());
 	}
 
