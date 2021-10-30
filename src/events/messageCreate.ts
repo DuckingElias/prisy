@@ -55,6 +55,9 @@ export default class MessageCreateEvent extends Event<"messageCreate"> {
 			if (c.name == commandName || c.aliases.includes(commandName)) return true;
 			return false;
 		});
+
+		if(!command) return;
+
 		let argsRaw = splitted.join(" ");
 		let args = argsRaw.split(/\s(?=(?:(?:[^"]*"){2})*[^"]*$)/).map((arg) => arg.trim());
 		if (args[0].trim() == "") args.shift();
