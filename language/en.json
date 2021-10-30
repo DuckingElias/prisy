@@ -5,6 +5,12 @@
             "description": "Hello {0} :wave: My prefix is `{1}`"
         }
     },
+    "categorys": {
+        "MODERATION": "Moderation",
+        "MISC": "Miscellaneous",
+        "CONFIGURATION": "Configuration",
+        "FUN": "Fun"
+    },
     "commands": {
         "error_messages": {
             "error_title": "Error - {0}",
@@ -38,6 +44,11 @@
                     "description": "The language to set for the guild"
                 }
             }
+        },
+        "help": {
+            "title": "All commands ({0})",
+            "description": "Shows the help message",
+            "embed_description": "This is a list of all commands, sorted by category."
         }
     }
 }

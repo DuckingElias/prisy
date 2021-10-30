@@ -35,7 +35,7 @@ export class CommandHandle {
 		}
 	}
 
-	private generateEmbed(
+	generateEmbed(
 		color: ColorResolvable,
 		title: string,
 		description: string,
@@ -43,8 +43,9 @@ export class CommandHandle {
 		return new MessageEmbed()
 			.setColor(color)
 			.setTitle(title)
-			.setAuthor(this.member.user.username, this.member.avatarURL())
-			.setDescription(description);
+			.setAuthor(this.member.user.username, this.member.user.avatarURL())
+			.setDescription(description)
+			.setTimestamp();
 	}
 
 	async error(commandName: string, description: string): Promise<void> {
