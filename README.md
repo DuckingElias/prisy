@@ -1,6 +1,6 @@
 # Prisy
 
-Prisy: An all purspose bot that keeps other bots in prison (because its so good)
+Prisy: An all purspose bot that keeps other bots in prison (because its so good :D)
 
 ## Prerequisites
 
