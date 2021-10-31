@@ -46,6 +46,7 @@
     "leetspeak": "^0.0.1",
     "mysql2": "^2.3.2",
     "reflect-metadata": "^0.1.13",
+    "simple-git": "^2.47.0",
     "toml": "^3.0.0",
     "tslog": "^3.2.2",
     "typeorm": "^0.2.38",
