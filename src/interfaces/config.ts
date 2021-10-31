@@ -1,4 +1,9 @@
 export default interface Config {
+
+	general: {
+		auto_update: boolean;
+	}
+
 	discord: {
 		token: string;
 		command_registration_type: "global" | "guild";
